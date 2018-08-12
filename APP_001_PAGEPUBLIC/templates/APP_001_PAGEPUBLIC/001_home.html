@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} {% endblock head_title %}
+
+{% block css %}
+{{ block.super }}
+{% endblock css %}
+
+    <body>
+        {% block content %}
+        <h1>Hello World !</h1>
+        {% endblock content %}
+    </body>
