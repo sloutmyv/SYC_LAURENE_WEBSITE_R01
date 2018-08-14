@@ -4,11 +4,14 @@
 {% block head_title %} {{ block.super }} {% endblock head_title %}
 
 {% block css %}
-{{ block.super }}
+<link href="{% static 'APP_001_PAGEPUBLIC/css/002_home_header.css' %}" rel="stylesheet">
 {% endblock css %}
 
     <body>
-        {% block content %}
-        <h1>Hello World !</h1>
-        {% endblock content %}
+            {% block content %}
+            <div class='container'>
+                <!-- Header -->
+                {% include "APP_001_PAGEPUBLIC/002_home_header.html" %}
+            </div>
+            {% endblock content %}
     </body>
