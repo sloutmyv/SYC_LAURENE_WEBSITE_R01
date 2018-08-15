@@ -1,32 +1,54 @@
 {% load staticfiles %}
-<header class="home-header bg-info py-3">
+<header class="home-header py-2">
     <div class="row">
-        <div class="col-12 col-md-9 bg-secondary">
+        <div class="col-12">
             <div class="row">
-                <div class="col-4">
+                <div class="col-5" align='right'>
                     <a href="#">
                         <img class="home-logo" src="{% static 'APP_001_PAGEPUBLIC/img/001-home-logo.png' %}">
                     </a>
                 </div>
-                <div class="col-8 bg-primary">
-                    <div class="row">
+                <div class="col-7 my-auto">
+                    <div class="row home-title">
                         <div class="col-12">
-                            <h4>Laurene Simonin</h4>
+                            <h1 class="home-title-name">Laurene Simonin</h1>
                         </div>
                         <div class="col-12">
-                            <h4>Sage-Femme</h4>
+                            <h2>Sage-Femme</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-3">
-            <div class="row">
-                <div class="col-12 bg-success">
-                    <h4>Téléphone</h4>
+    </div>
+    <div class="row">
+        <div class="col-12" align="center">
+            <div class="row header-contact pt-2">
+                <div class="col-12 col-md-4">
+                    <span class="header-icon">
+                        <i class="material-icons">phone</i>
+                        <a class="header-color" href="#">
+                            <span class="align-top">06.07.70.91.99</span>
+                        </a>
+                    </span>
                 </div>
-                <div class="col-12 bg-danger">
-                    <h4>Rendez-vous</h4>
+                <div class="col-12 col-md-4" align="center">
+                    <span class="header-icon">
+                        <i class="material-icons">place</i>
+                        <a class="header-color" href="#">
+                            <span class="align-top">16 Rue des Marronniers, 69960 Corbas</span>
+                        </a>
+                    </span>
+                </div>
+                <div class="col-12 col-md-4" align="center">
+
+                    <span class="header-icon">
+                        <i class="material-icons">today</i>
+                        <a class="header-color" href="#">
+                            <span class="align-top">Prendre rendez-vous en ligne</span>
+                        </a>
+                    </span>
+
                 </div>
             </div>
         </div>
