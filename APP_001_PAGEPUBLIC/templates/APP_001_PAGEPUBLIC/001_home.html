@@ -5,6 +5,7 @@
 
 {% block css %}
 <link href="{% static 'APP_001_PAGEPUBLIC/css/002_home_header.css' %}" rel="stylesheet">
+<link href="{% static 'APP_001_PAGEPUBLIC/css/003_home_navbar.css' %}" rel="stylesheet">
 {% endblock css %}
 
     <body>
@@ -12,6 +13,8 @@
             <div class='container'>
                 <!-- Header -->
                 {% include "APP_001_PAGEPUBLIC/002_home_header.html" %}
+                <!-- Navbar -->
+                {% include "APP_001_PAGEPUBLIC/003_home_navbar.html" %}
             </div>
             {% endblock content %}
     </body>

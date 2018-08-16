@@ -11,9 +11,6 @@ header {
 a.header-color, a.header-color:link, a.header-color:visited {
   color: #000000;
 }
-.header-contact{
-    font-family: 'Archivo', sans-serif;
-}
 .header-icon{
     display:block;
     font-size: 0.9rem;
