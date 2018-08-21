@@ -1,10 +1,12 @@
 /* 001 - HTML TAGS */
 /* 002 - CLASS TAGS */
-.nav-style, .header-contact{
+nav, .header-contact, .fichemetier-text{
     font-family: 'Montserrat', sans-serif;
 }
 
-
+.fichemetier-title{
+    font-family: 'Neucha', cursive;
+}
 /* 003 - ID TAGS */
 /* 004 - MEDIA QUERIES TAGS */
 /* Extra small devices (portrait phones, less than 576px) */
