@@ -1,10 +1,10 @@
 /* 001 - HTML TAGS */
 /* 002 - CLASS TAGS */
-nav, .header-contact, .fichemetier-text{
+nav, .header-contact, .fichemetier-text, .home-card-deck{
     font-family: 'Montserrat', sans-serif;
 }
 
-.fichemetier-title{
+.fichemetier-title, .monparcours-title{
     font-family: 'Neucha', cursive;
 }
 /* 003 - ID TAGS */

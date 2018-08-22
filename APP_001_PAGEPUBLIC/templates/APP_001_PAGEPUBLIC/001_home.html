@@ -7,6 +7,7 @@
 <link href="{% static 'APP_001_PAGEPUBLIC/css/002_home_header.css' %}" rel="stylesheet">
 <link href="{% static 'APP_001_PAGEPUBLIC/css/003_home_navbar.css' %}" rel="stylesheet">
 <link href="{% static 'APP_001_PAGEPUBLIC/css/004_home_fichemetier.css' %}" rel="stylesheet">
+<link href="{% static 'APP_001_PAGEPUBLIC/css/005_home_carddeck.css' %}" rel="stylesheet">
 {% endblock css %}
 
     <body>
@@ -18,8 +19,12 @@
                 {% include "APP_001_PAGEPUBLIC/003_home_navbar.html" %}
                 <!-- Fiche metier -->
                 {% include "APP_001_PAGEPUBLIC/004_home_fichemetier.html" %}
+                <hr>
                 <!-- Card Deck-->
                 {% include "APP_001_PAGEPUBLIC/005_home_carddeck.html" %}
+                <hr>
+                <!-- Mon parcours-->
+                {% include "APP_001_PAGEPUBLIC/006_home_monparcours.html" %}
             </div>
             {% endblock content %}
     </body>
