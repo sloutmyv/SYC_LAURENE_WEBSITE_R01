@@ -4,10 +4,6 @@
 {% block head_title %} {{ block.super }} {% endblock head_title %}
 
 {% block css %}
-<link href="{% static 'APP_001_PAGEPUBLIC/css/002_home_header.css' %}" rel="stylesheet">
-<link href="{% static 'APP_001_PAGEPUBLIC/css/003_home_navbar.css' %}" rel="stylesheet">
-<link href="{% static 'APP_001_PAGEPUBLIC/css/004_home_fichemetier.css' %}" rel="stylesheet">
-<link href="{% static 'APP_001_PAGEPUBLIC/css/005_home_carddeck.css' %}" rel="stylesheet">
 {% endblock css %}
 
     <body>
@@ -25,6 +21,8 @@
                 <hr>
                 <!-- Mon parcours-->
                 {% include "APP_001_PAGEPUBLIC/006_home_monparcours.html" %}
-            </div>
+                <hr>
+                <!-- Le cabinet-->
+                {% include "APP_001_PAGEPUBLIC/007_home_cabinet.html" %}            </div>
             {% endblock content %}
     </body>
