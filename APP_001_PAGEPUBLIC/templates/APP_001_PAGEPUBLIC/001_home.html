@@ -4,6 +4,7 @@
 {% block head_title %} {{ block.super }} {% endblock head_title %}
 
 {% block css %}
+<link href="{% static 'APP_001_PAGEPUBLIC/css/app_001_pagepublic.css' %}" rel="stylesheet">
 {% endblock css %}
 
     <body>
@@ -23,6 +24,11 @@
                 {% include "APP_001_PAGEPUBLIC/006_home_monparcours.html" %}
                 <hr>
                 <!-- Le cabinet-->
-                {% include "APP_001_PAGEPUBLIC/007_home_cabinet.html" %}            </div>
+                {% include "APP_001_PAGEPUBLIC/007_home_cabinet.html" %}
+                <hr>
+                <!-- Contacts -->
+                {% include "APP_001_PAGEPUBLIC/008_home_contact.html" %}
+                <!-- Le footer-->
+                {% include "APP_001_PAGEPUBLIC/009_home_footer.html" %}
             {% endblock content %}
     </body>
