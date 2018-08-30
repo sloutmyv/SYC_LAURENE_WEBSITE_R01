@@ -4,23 +4,23 @@
         <div class="col-lg-4">
             <span class="home-header-icon">
                 <font color="#ffa393"><i class="material-icons">phone</i></font>
-                <a class="link-color" href="#">
-                    <span class="align-top">06.07.70.91.99</span>
+                <a class="link-color" href="tel:+33{{ cabinet.callable_number }}">
+                    <span class="align-top">{{ cabinet.showable_number }}</span>
                 </a>
             </span>
         </div>
         <div class="col-lg-4">
             <span class="home-header-icon">
                 <font color="#ffa393"><i class="material-icons">alternate_email</i></font>
-                <a class="link-color" href="#">
-                    <span class="align-top">laurene.simonin.sagefemme@gmail.com</span>
+                <a class="link-color" href="mailto:{{ cabinet.cabinet_email }}">
+                    <span class="align-top">{{ cabinet.cabinet_email }}</span>
                 </a>
             </span>
         </div>
         <div class="col-lg-4">
             <span class="home-header-icon">
                 <font color="#ffa393"><i class="material-icons">today</i></font>
-                <a class="link-color" href="#">
+                <a class="link-color" href="{{ cabinet.cabinet_rdvenligne }}">
                     <span class="align-top">Prendre rendez-vous en ligne</span>
                 </a>
             </span>

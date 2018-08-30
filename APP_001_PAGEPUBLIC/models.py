@@ -6,8 +6,8 @@ from .utils import unique_slug_generator, upload_location                # pour 
 class Praticien(models.Model):
     praticien_prenom                  = models.CharField(max_length=120, verbose_name="Prénom du praticien")
     praticien_nom                     = models.CharField(max_length=120, verbose_name="Nom du praticien")
-    slug                              = models.SlugField(null=True, blank=True, editable=False, verbose_name="Photo")
-    praticien_image                   = models.ImageField(upload_to=upload_location, null=True,blank=True)
+    slug                              = models.SlugField(null=True, blank=True, editable=False, verbose_name="slug")
+    praticien_image                   = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="photo")
     praticien_presentation_titre      = models.CharField(max_length=120,null=True, blank=True, verbose_name="Titre de la section 'Mon Parcours'")
     praticien_presentation_texte      = models.TextField(null=True,blank=True, verbose_name="Texte de la section 'Mon Parcours'")
 
@@ -53,6 +53,83 @@ class Experience(models.Model):
         """ Pour l'affichage d'un titre modèle dans l'admin"""
         return self.experience_titre
 
+class Cabinet(models.Model):
+    cabinet_titre           = models.CharField(max_length=120, verbose_name="Cabinet titre")
+    slug                    = models.SlugField(null=True, blank=True, editable=False, verbose_name="slug")
+    cabinet_adresse         = models.CharField(max_length=200, verbose_name="Adresse postale")
+    cabinet_telephone       = models.CharField(max_length=10, verbose_name="Téléphone")
+    cabinet_email           = models.EmailField(max_length=254, verbose_name="Email")
+    cabinet_rdvenligne      = models.URLField(max_length=300, null=True, blank=True, verbose_name="Url rdv en ligne")
+    cabinet_description     = models.TextField(null=True, blank=True, verbose_name="Texte accueil cabinet")
+    cabinet_acces           = models.TextField(null=True, blank=True, verbose_name="Cabinet accès")
+    cabinet_lat             = models.DecimalField(null=True, blank=True, max_digits=9, decimal_places=6, verbose_name="Cabinet latitude")
+    cabinet_lng             = models.DecimalField(null=True, blank=True, max_digits=9, decimal_places=6, verbose_name="Cabinet longitude")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = 'Cabinet'
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.cabinet_titre
+
+    @property
+    def title(self):
+        """ Nécéssaire à l'appel du signal de création de slug"""
+        return self.cabinet_titre
+
+    def showable_number(self):
+        number = self.cabinet_telephone
+        txt=""
+        for i in range(len(number)):
+            txt += number[i]
+            if i%2 == 1 and i < len(number)-1:
+                txt += '.'
+        return txt
+
+    def callable_number(self):
+            number = self.cabinet_telephone
+            return ''.join(number[1:])
+
+class Cabinetphoto(models.Model):
+    cabinetphoto_cabinet         = models.ForeignKey(Cabinet, related_name='cabinetphoto',verbose_name="Cabinet")
+    cabinetphoto_titre              = models.CharField(max_length=120, verbose_name="Titre de la photo")
+    slug                            = models.SlugField(null=True, blank=True, editable=False, verbose_name="slug")
+    cabinetphoto_photo              = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="photo du cabinet")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = 'Photos du cabinet'
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.cabinetphoto_titre
+
+    @property
+    def title(self):
+        """ Nécéssaire à l'appel du signal de création de slug"""
+        return self.cabinetphoto_titre
+
+class Profession(models.Model):
+    profession_titre             = models.CharField(max_length=120, verbose_name="Profession titre")
+    slug                         = models.SlugField(null=True, blank=True, editable=False, verbose_name="Slug")
+    profession_description_titre = models.CharField(max_length=120, verbose_name="Titre description profession")
+    profession_description_texte = models.TextField(null=True, blank=True, verbose_name="Texte description profession")
+    profession_img               = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="Image description profession")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = 'Profession'
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.profession_titre
+
+    @property
+    def title(self):
+        """ Nécéssaire à l'appel du signal de création de slug"""
+        return self.profession_titre
+
 
 ### Signals de création des slugs
 def rl_pre_save_receiver(sender, instance, *args, **kwargs):
@@ -60,3 +137,6 @@ def rl_pre_save_receiver(sender, instance, *args, **kwargs):
         instance.slug=unique_slug_generator(instance)
 
 pre_save.connect(rl_pre_save_receiver, sender=Praticien)
+pre_save.connect(rl_pre_save_receiver, sender=Cabinet)
+pre_save.connect(rl_pre_save_receiver, sender=Cabinetphoto)
+pre_save.connect(rl_pre_save_receiver, sender=Profession)

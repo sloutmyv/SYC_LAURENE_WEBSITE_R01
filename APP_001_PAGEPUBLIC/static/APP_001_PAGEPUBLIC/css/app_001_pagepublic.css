@@ -151,8 +151,10 @@ a.home-cabinet-link, a.home-cabinet-link:link, a.home-cabinet-link:visited {
 }
 
 /* 009-home-footer*/
-footer {
+footer{
     background-color:#ffe6b3;
+    color: #000000;
+    font-size: 0.8rem;
 }
 a.home-footer-link, a.home-footer-link:link, a.home-footer-link:visited {
   color: #000000;

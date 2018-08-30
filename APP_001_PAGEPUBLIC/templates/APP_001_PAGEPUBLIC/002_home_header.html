@@ -27,8 +27,8 @@
                 <div class="col-12 col-md-4">
                     <span class="home-header-icon">
                         <i class="material-icons">phone</i>
-                        <a class="link-color" href="#">
-                            <span class="align-top">06.07.70.91.99</span>
+                        <a class="link-color" href="tel:+33{{ cabinet.callable_number }}">
+                            <span class="align-top">{{ cabinet.showable_number }}</span>
                         </a>
                     </span>
                 </div>
@@ -36,7 +36,7 @@
                     <span class="home-header-icon">
                         <i class="material-icons">place</i>
                         <a class="link-color" href="#cabinet">
-                            <span class="align-top">16 Rue des Marronniers, 69960 Corbas</span>
+                            <span class="align-top">{{ cabinet.cabinet_adresse }}</span>
                         </a>
                     </span>
                 </div>
@@ -44,7 +44,7 @@
 
                     <span class="home-header-icon">
                         <i class="material-icons">today</i>
-                        <a class="link-color" href="#">
+                        <a class="link-color" href="{{ cabinet.cabinet_rdvenligne }}">
                             <span class="align-top">Prendre rendez-vous en ligne</span>
                         </a>
                     </span>
