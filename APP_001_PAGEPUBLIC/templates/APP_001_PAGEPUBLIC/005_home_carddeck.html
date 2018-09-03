@@ -2,11 +2,12 @@
 <section class="home-font-montserrat pt-2">
     <h2 class="home-font-neucha">Quand consulter votre Sage-Femme ?</h2>
     <div class="card-deck">
+    {% for el in categorieacte %}
       <div class="card">
-        <img class="card-img-top" src="{% static 'APP_001_PAGEPUBLIC/img/004-img-pendant-la-grossesse.jpg' %}" alt="pendant-la-grossesse">
+        <img class="card-img-top" src="{{ el.categorieacte_cardimage.url }}" alt="{{ el.slug }}">
         <div class="card-body">
-          <h5 class="card-title"><b>Pendant la grossesse</b></h5>
-          <p class="card-text card-subtitle">Pour préparer au mieux l'arrivée du bébé.</p>
+          <h5 class="card-title"><b>{{ el.categorieacte_titre }}</b></h5>
+          <p class="card-text card-subtitle">{{ el.categorieacte_description_card }}</p>
           <p class="card-text card-actes">
               <ul class="card-actes">
                   <li><small class="text-muted">Les consultations prénatales</small></li>
@@ -16,37 +17,8 @@
               </ul>
           </p>
         </div>
-        <div class="card-footer text-center"><a href="#" class="btn button">En savoir plus</a></div>
+        <div class="card-footer text-center"><a href="{{ el.slug }}" class="btn button">En savoir plus</a></div>
       </div>
-      <div class="card">
-        <img class="card-img-top" src="{% static 'APP_001_PAGEPUBLIC/img/005-img-apres-la-naissance.jpg' %}" alt="après-la-naissance">
-        <div class="card-body">
-          <h5 class="card-title"><b>Après la naissance</b></h5>
-          <p class="card-text card-subtitle">Assurer la surveillance de la mère et de l'enfant.</p>
-          <p class="card-text">
-              <ul class="card-actes">
-                  <li><small class="text-muted">Les visites à domicile</small></li>
-                  <li><small class="text-muted">La consultation post-partum</small></li>
-                  <li><small class="text-muted">Les consultations postnatales</small></li>
-                  <li><small class="text-muted">La réeducation du périnée</small></li>
-              </ul>
-          </p>
-        </div>
-        <div class="card-footer text-center"><a href="#" class="btn button">En savoir plus</a></div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="{% static 'APP_001_PAGEPUBLIC/img/006-img-gynecologie.jpg' %}" alt="consultation-gynécologique">
-        <div class="card-body">
-          <h5 class="card-title"><b>Suivi gynécologique</b></h5>
-          <p class="card-text card-subtitle">Un accompagnement tout au long de votre vie de femme.</p>
-          <p class="card-text">
-              <ul class="card-actes">
-                  <li><small class="text-muted">Les consultations de gynécologie</small></li>
-                  <li><small class="text-muted">La contraception</small></li>
-              </ul>
-          </p>
-        </div>
-        <div class="card-footer text-center"><a href="#" class="btn button">En savoir plus</a></div>
-      </div>
+      {% endfor %}
     </div>
 </section>

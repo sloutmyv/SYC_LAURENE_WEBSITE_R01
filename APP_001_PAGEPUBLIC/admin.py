@@ -1,6 +1,14 @@
 from django.contrib import admin
 
-from .models import Praticien, Formation, Experience, Cabinet, Cabinetphoto, Profession
+from .models import (
+                        Praticien,
+                        Formation,
+                        Experience,
+                        Cabinet,
+                        Cabinetphoto,
+                        Profession,
+                        CategorieActe,
+                    )
 
 ### Admin model "Praticien"
 class ExperienceInline(admin.TabularInline):
@@ -24,3 +32,6 @@ admin.site.register(Cabinet, CabinetAdmin)
 
 ### Admin model "Profession"
 admin.site.register(Profession)
+
+### Admin model "Catégorie d'acte"
+admin.site.register(CategorieActe)

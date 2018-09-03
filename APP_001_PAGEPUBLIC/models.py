@@ -130,6 +130,26 @@ class Profession(models.Model):
         """ Nécéssaire à l'appel du signal de création de slug"""
         return self.profession_titre
 
+class CategorieActe(models.Model):
+    categorieacte_titre             = models.CharField(max_length=120, verbose_name="Categorie d'acte")
+    slug                            = models.SlugField(null=True, blank=True, editable=False, verbose_name="Slug")
+    categorieacte_description_card  = models.CharField(null=True, blank=True, max_length=200, verbose_name="Description card deck")
+    categorieacte_description       = models.TextField(null=True, blank=True, verbose_name="Texte description catégorie acte")
+    categorieacte_cardimage         = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="Image card deck")
+    categorieacte_mainimage         = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="Image principale")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = "Catégorie d'acte"
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.categorieacte_titre
+
+    @property
+    def title(self):
+        """ Nécéssaire à l'appel du signal de création de slug"""
+        return self.categorieacte_titre
 
 ### Signals de création des slugs
 def rl_pre_save_receiver(sender, instance, *args, **kwargs):
@@ -140,3 +160,4 @@ pre_save.connect(rl_pre_save_receiver, sender=Praticien)
 pre_save.connect(rl_pre_save_receiver, sender=Cabinet)
 pre_save.connect(rl_pre_save_receiver, sender=Cabinetphoto)
 pre_save.connect(rl_pre_save_receiver, sender=Profession)
+pre_save.connect(rl_pre_save_receiver, sender=CategorieActe)

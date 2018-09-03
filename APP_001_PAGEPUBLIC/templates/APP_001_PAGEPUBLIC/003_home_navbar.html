@@ -1,6 +1,6 @@
 <div id="navbar nav-style">
     <nav class="navbar sticky-top navbar-expand-lg navbar-light home-font-montserrat">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="{% url 'page-public:page-public-home' %}">
           <i class="material-icons">home</i>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,9 +9,10 @@
 
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
+            {% for el in categorieacte %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Pendant votre grossesse
+                {{ el.categorieacte_titre }}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Les consultations prénatales</a>
@@ -20,29 +21,7 @@
                 <a class="dropdown-item" href="#">Le monitoring à domicile</a>
               </div>
             </li>
-
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Après votre accouchement
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Visite à domicile</a>
-              <a class="dropdown-item" href="#">La consultation post-partum</a>
-              <a class="dropdown-item" href="#">Consultation postnatale</a>
-              <a class="dropdown-item" href="#">Réeducation du périnée</a>
-            </div>
-            </li>
-
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Suivi gynécologique
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">La consultation de gynécologie</a>
-              <a class="dropdown-item" href="#">Choisir sa contraception</a>
-            </div>
-            </li>
-
+            {% endfor %}
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               A propos
