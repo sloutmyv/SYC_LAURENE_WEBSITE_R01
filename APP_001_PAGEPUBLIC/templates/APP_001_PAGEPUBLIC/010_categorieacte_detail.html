@@ -27,6 +27,11 @@
                             </div>
                             <div>
                                 <h5 class="home-font-neucha">Actes pratiqués :</h5>
+                                <ul class="home-font-montserrat home-fichemetier-text">
+                                    {% for i in object.categorieacte.all %}
+                                    <li>{{ i.acte_titre }}</li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -92,7 +92,7 @@ class Cabinet(models.Model):
             return ''.join(number[1:])
 
 class Cabinetphoto(models.Model):
-    cabinetphoto_cabinet         = models.ForeignKey(Cabinet, related_name='cabinetphoto',verbose_name="Cabinet")
+    cabinetphoto_cabinet             = models.ForeignKey(Cabinet, related_name='cabinetphoto',verbose_name="Cabinet")
     cabinetphoto_titre              = models.CharField(max_length=120, verbose_name="Titre de la photo")
     slug                            = models.SlugField(null=True, blank=True, editable=False, verbose_name="slug")
     cabinetphoto_photo              = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="photo du cabinet")
@@ -151,6 +151,27 @@ class CategorieActe(models.Model):
         """ Nécéssaire à l'appel du signal de création de slug"""
         return self.categorieacte_titre
 
+class Acte(models.Model):
+    acte_categorie                  = models.ForeignKey(CategorieActe, related_name='categorieacte',verbose_name="Catégorie de l'acte")
+    acte_titre                      = models.CharField(max_length=120, verbose_name="Acte")
+    slug                            = models.SlugField(null=True, blank=True, editable=False, verbose_name="Slug")
+    acte_description                = models.TextField(null=True, blank=True, verbose_name="Texte description acte")
+    acte_image                      = models.ImageField(upload_to=upload_location, null=True,blank=True, verbose_name="Image principale")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = "Acte"
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.acte_titre
+
+    @property
+    def title(self):
+        """ Nécéssaire à l'appel du signal de création de slug"""
+        return self.acte_titre
+
+
 ### Signals de création des slugs
 def rl_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
@@ -161,3 +182,4 @@ pre_save.connect(rl_pre_save_receiver, sender=Cabinet)
 pre_save.connect(rl_pre_save_receiver, sender=Cabinetphoto)
 pre_save.connect(rl_pre_save_receiver, sender=Profession)
 pre_save.connect(rl_pre_save_receiver, sender=CategorieActe)
+pre_save.connect(rl_pre_save_receiver, sender=Acte)

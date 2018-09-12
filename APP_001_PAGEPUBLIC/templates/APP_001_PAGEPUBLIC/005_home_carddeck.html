@@ -10,14 +10,13 @@
           <p class="card-text card-subtitle">{{ el.categorieacte_description_card }}</p>
           <p class="card-text card-actes">
               <ul class="card-actes">
-                  <li><small class="text-muted">Les consultations prénatales</small></li>
-                  <li><small class="text-muted">L'entretien prénatale précoces</small></li>
-                  <li><small class="text-muted">Les cours de préparation à la naissance</small></li>
-                  <li><small class="text-muted">Les monitoring à domicile</small></li>
+                  {% for i in el.categorieacte.all %}
+                  <li><small class="text-muted">{{ i.acte_titre }}</small></li>
+                  {% endfor %}
               </ul>
           </p>
         </div>
-        <div class="card-footer text-center"><a href="{{ el.slug }}" class="btn button">En savoir plus</a></div>
+        <div class="card-footer text-center"><a href="{% url 'page-public:page-public-categorie-acte' slug=el.slug %}" class="btn button">En savoir plus</a></div>
       </div>
       {% endfor %}
     </div>

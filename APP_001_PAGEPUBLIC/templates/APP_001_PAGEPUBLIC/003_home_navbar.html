@@ -14,11 +14,11 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ el.categorieacte_titre }}
               </a>
+
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Les consultations prénatales</a>
-                <a class="dropdown-item" href="#">L'entretien prénatal précoce</a>
-                <a class="dropdown-item" href="#">Les cours de préparation à la naissance</a>
-                <a class="dropdown-item" href="#">Le monitoring à domicile</a>
+                {% for i in el.categorieacte.all %}
+                <a class="dropdown-item" href="{% url 'page-public:page-public-acte' slug=i.slug %}">{{ i.acte_titre }}</a>
+                {% endfor %}
               </div>
             </li>
             {% endfor %}

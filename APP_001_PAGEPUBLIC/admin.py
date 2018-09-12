@@ -8,6 +8,7 @@ from .models import (
                         Cabinetphoto,
                         Profession,
                         CategorieActe,
+                        Acte,
                     )
 
 ### Admin model "Praticien"
@@ -35,3 +36,6 @@ admin.site.register(Profession)
 
 ### Admin model "Catégorie d'acte"
 admin.site.register(CategorieActe)
+
+### Admin model "Acte"
+admin.site.register(Acte)

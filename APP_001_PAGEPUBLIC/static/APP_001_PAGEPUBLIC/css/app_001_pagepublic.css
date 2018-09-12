@@ -161,6 +161,15 @@ a.home-footer-link, a.home-footer-link:link, a.home-footer-link:visited {
   font-size: 0.8rem;
 }
 
+/* 011_acte_detail */
+img.home-acte-photo{
+    width:350px; /* you can use % */
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* MEDIA QUERIES TAGS */
 /* Extra small devices (portrait phones, less than 576px) */
@@ -213,6 +222,10 @@ a.home-footer-link, a.home-footer-link:link, a.home-footer-link:visited {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    /* 011_acte_detail */
+    h5.home-font-montserrat{
+        font-size: 1rem;
     }
 
 
@@ -285,6 +298,10 @@ a.home-footer-link, a.home-footer-link:link, a.home-footer-link:visited {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    /* 011_acte_detail */
+    h5.home-font-montserrat{
+        font-size: 1rem;
     }
 }
 /* Medium devices (md) (tablets, 768px and up) */

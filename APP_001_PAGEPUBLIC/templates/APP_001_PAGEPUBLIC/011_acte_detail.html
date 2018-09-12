@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} {% endblock head_title %}
+
+{% block css %}
+<link href="{% static 'APP_001_PAGEPUBLIC/css/app_001_pagepublic.css' %}" rel="stylesheet">
+{% endblock css %}
+
+    <body>
+            {% block content %}
+            <div class='container'>
+                <!-- Header -->
+                {% include "APP_001_PAGEPUBLIC/002_home_header.html" %}
+                <!-- Navbar -->
+                {% include "APP_001_PAGEPUBLIC/003_home_navbar.html" %}
+                <!-- Content -->
+                <section id="acte" class="py-4">
+                    <div class="row vertical-align">
+                        <div class="col-12">
+                            <img class="home-acte-photo" src="{{ object.acte_image.url }}" alt="{{ object.slug }}">
+                        </div>
+                    </div>
+                    <hr>
+                    <h1 class="home-font-neucha" align="center">{{ object.acte_titre  }}</h1>
+                    <div class="row vertical-align">
+                        <div class="col-12 py-2">
+                            <div>
+                                {{ object.acte_description|safe }}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Contacts -->
+                {% include "APP_001_PAGEPUBLIC/008_home_contact.html" %}
+                <!-- Le footer-->
+                {% include "APP_001_PAGEPUBLIC/009_home_footer.html" %}
+            {% endblock content %}
+    </body>
