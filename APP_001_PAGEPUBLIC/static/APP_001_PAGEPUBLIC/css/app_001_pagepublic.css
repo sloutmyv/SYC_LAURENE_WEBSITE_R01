@@ -169,6 +169,10 @@ img.home-acte-photo{
     margin-left: auto;
     margin-right: auto;
 }
+/* 012_honoraires */
+.home-honoraire {
+   text-align: center;
+}
 
 
 /* MEDIA QUERIES TAGS */

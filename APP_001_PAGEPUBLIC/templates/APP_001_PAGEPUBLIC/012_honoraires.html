@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head_title %} {{ block.super }} {% endblock head_title %}
+
+{% block css %}
+<link href="{% static 'APP_001_PAGEPUBLIC/css/app_001_pagepublic.css' %}" rel="stylesheet">
+{% endblock css %}
+
+    <body>
+            {% block content %}
+            <div class='container'>
+                <!-- Header -->
+                {% include "APP_001_PAGEPUBLIC/002_home_header.html" %}
+                <!-- Navbar -->
+                {% include "APP_001_PAGEPUBLIC/003_home_navbar.html" %}
+                <!-- Content -->
+                <section id="actehonoraires" class="py-4">
+                    <h1 class="home-font-neucha" align="center">Honoraires</h1>
+                    <hr>
+                    <div class="px-5">
+                        <table class="table table-hover table-sm table-bordered home-monparcours-table home-honoraire">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">Actes</th>
+                                <th scope="col">Durée</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Honoraires</th>
+                                <th scope="col">Prise en charge CPAM</th>
+                              </tr>
+                            </thead>
+                          <tbody>
+                          {% for el in honoraire %}
+                            <tr>
+                              <td>{{ el.actehonoraires_titre }}</td>
+                              <td>{{ el.actehonoraires_duree }}</td>
+                              <td>{{ el.actehonoraires_type }}</td>
+                              <td>{{ el.actehonoraires_honoraire }}</td>
+                              <td>{{ el.actehonoraires_cpam }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <small>(1) 100 % remboursé à partir de la déclaration de grossesse</small></br>
+                            <small>(2) Prise en charge à 100% de 7 cours de préparation à la naissance</small></br>
+                            <small>(3) Indemnités kilométriques : 4 euros d’indemnité déplacement + 0,45€/km</small></br>
+                            <small>(4) 100% remboursé si post accouchement, 70% remboursé si > 6mois après accouchement</small></br>
+                            <small>(5) Hors nomenclature</small></br>
+                            <small>(6) 70% remboursé</small></br>
+                        </div>
+                    </div>
+                </section>
+                <!-- Contacts -->
+                {% include "APP_001_PAGEPUBLIC/008_home_contact.html" %}
+                <!-- Le footer-->
+                {% include "APP_001_PAGEPUBLIC/009_home_footer.html" %}
+            {% endblock content %}
+    </body>

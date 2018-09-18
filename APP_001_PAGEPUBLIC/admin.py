@@ -9,6 +9,7 @@ from .models import (
                         Profession,
                         CategorieActe,
                         Acte,
+                        ActeHonoraires,
                     )
 
 ### Admin model "Praticien"
@@ -39,3 +40,6 @@ admin.site.register(CategorieActe)
 
 ### Admin model "Acte"
 admin.site.register(Acte)
+
+### Admin model "ActeHonoraires"
+admin.site.register(ActeHonoraires)

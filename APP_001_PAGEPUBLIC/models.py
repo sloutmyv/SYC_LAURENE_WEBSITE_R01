@@ -171,6 +171,22 @@ class Acte(models.Model):
         """ Nécéssaire à l'appel du signal de création de slug"""
         return self.acte_titre
 
+class ActeHonoraires(models.Model):
+    actehonoraires_titre            = models.CharField(max_length=120, verbose_name="Acte")
+    actehonoraires_duree            = models.CharField(max_length=120,null=True, blank=True, verbose_name="Durée de l'acte")
+    actehonoraires_type             = models.CharField(max_length=120,null=True, blank=True, verbose_name="Cabinet/visite")
+    actehonoraires_honoraire        = models.CharField(max_length=120,null=True, blank=True, verbose_name="Honoraire")
+    actehonoraires_cpam             = models.CharField(max_length=120,null=True, blank=True, verbose_name="Remboursement CPAM")
+
+    class Meta:
+        """ Le titre du modèle qui d'affiche dans l'interface d'administration"""
+        verbose_name_plural = "Honoraire"
+
+    def __str__(self):
+        """ Pour l'affichage d'un titre modèle dans l'admin"""
+        return self.actehonoraires_titre
+
+
 
 ### Signals de création des slugs
 def rl_pre_save_receiver(sender, instance, *args, **kwargs):
